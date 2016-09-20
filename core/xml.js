@@ -415,6 +415,7 @@ Blockly.Xml.domToBlockHeadless_ = function(xmlBlock, workspace) {
     switch (xmlChild.nodeName.toLowerCase()) {
       case 'mutation':
         // Custom data for an advanced block.
+        block.handleCollapsing(xmlChild)
         if (block.domToMutation) {
           block.domToMutation(xmlChild);
           if (block.initSvg) {

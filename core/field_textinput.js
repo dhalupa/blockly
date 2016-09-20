@@ -129,7 +129,7 @@ Blockly.FieldTextInput.prototype.showEditor_ = function(opt_quietInput) {
       goog.dom.createDom(goog.dom.TagName.INPUT, 'blocklyHtmlInput');
   htmlInput.setAttribute('spellcheck', this.spellcheck_);
   var fontSize =
-      (Blockly.FieldTextInput.FONTSIZE * this.workspace_.scale) + 'pt';
+      (Blockly.FieldTextInput.FONTSIZE * this.workspace_.scale) + 'px';
   div.style.fontSize = fontSize;
   htmlInput.style.fontSize = fontSize;
   /** @type {!HTMLInputElement} */
