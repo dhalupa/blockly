@@ -104,7 +104,7 @@ Blockly.Xml.blockToDom = function(block) {
   }
 
   if (block.data) {
-    var dataElement = goog.dom.createDom('data', null, block.data);
+    var dataElement = goog.dom.createDom('data', null, JSON.stringify(block.data));
     element.appendChild(dataElement);
   }
 
@@ -444,7 +444,7 @@ Blockly.Xml.domToBlockHeadless_ = function(xmlBlock, workspace) {
         }
         break;
       case 'data':
-        block.data = xmlChild.textContent;
+        block.data = JSON.parse(xmlChild.textContent);
         break;
       case 'title':
         // Titles were renamed to field in December 2013.
