@@ -538,6 +538,9 @@ Blockly.Xml.domToBlockHeadless_ = function(xmlBlock, workspace) {
     }
     block.setShadow(true);
   }
+  if(block.postConstruct){
+    block.postConstruct()
+  }
   return block;
 };
 
