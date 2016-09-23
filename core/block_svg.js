@@ -59,6 +59,12 @@ Blockly.BlockSvg = function(workspace, prototypeName, opt_id) {
    * @type {SVGElement}
    * @private
    */
+  this.svgGroupBackground_ = Blockly.createSvgElement('rect', {fill: '#88AEBA'}, this.svgGroup_);
+
+  /**
+   * @type {SVGElement}
+   * @private
+   */
   this.svgPathDark_ = Blockly.createSvgElement('path',
       {'class': 'blocklyPathDark', 'transform': 'translate(1,1)'},
       this.svgGroup_);

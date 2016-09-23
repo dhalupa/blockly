@@ -291,6 +291,16 @@ Blockly.BlockSvg.prototype.render = function(opt_bubble) {
       this.workspace.resizeContents();
     }
   }
+
+  //covering inline input fields background
+  if (this.getInputsInline()) {
+    this.svgGroupBackground_.setAttribute('width', Math.max(0, this.width-10))
+    this.svgGroupBackground_.setAttribute('height', this.height)
+  } else {
+    this.svgGroupBackground_.setAttribute('width', 0)
+    this.svgGroupBackground_.setAttribute('height', 0)
+  }
+
   Blockly.Field.stopCache();
 };
 
