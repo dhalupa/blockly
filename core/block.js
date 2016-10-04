@@ -1110,8 +1110,10 @@ Blockly.Block.prototype.interpolate_ = function(message, args, lastDummyAlign) {
               field = new Blockly.FieldAngle(element['angle']);
               break;
             case 'field_checkbox':
-              field = new Blockly.FieldCheckbox(
-                  element['checked'] ? 'TRUE' : 'FALSE');
+              field = new Blockly.FieldCheckbox(element['checked'] ? 'TRUE' : 'FALSE');
+              break;
+            case 'field_collapser':
+              field = new Blockly.FieldCollapser(element['checked'] ? 'TRUE' : 'FALSE');
               break;
             case 'field_colour':
               field = new Blockly.FieldColour(element['colour']);
