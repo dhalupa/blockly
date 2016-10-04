@@ -76,7 +76,7 @@ Blockly.FieldCollapser.prototype.init = function () {
             'height': 16
         }, this.fieldGroup_, this.sourceBlock_.workspace);
     /** @type {!Element} */
-    this.src_ = this.workspace_.options.pathToMedia + (this.state_ ? "expand" : "collapse") + '.png';
+    this.src_ = this.sourceBlock_.workspace.options.pathToMedia + (this.state_ ? "expand" : "collapse") + '.png';
     this.imageElement_ = Blockly.createSvgElement('image',
         {
             'height': this.height_ + 'px',
@@ -110,7 +110,7 @@ Blockly.FieldCollapser.prototype.setValue = function(shouldBeCollapsed) {
         }
         this.state_ = newState;
         if (this.imageElement_) {
-            this.src_ = this.workspace_.options.pathToMedia + (this.state_ ? "expand" : "collapse") + '.png';
+            this.src_ = this.sourceBlock_.workspace.options.pathToMedia + (this.state_ ? "expand" : "collapse") + '.png';
             this.imageElement_.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', goog.isString(this.src_) ? this.src_ : '');
         }
     }
