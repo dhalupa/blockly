@@ -1312,6 +1312,25 @@ Blockly.BlockSvg.prototype.setCommentText = function(text) {
 };
 
 /**
+ * Marks block visually as invalid.
+ * @param isInvalid
+ */
+Blockly.BlockSvg.prototype.markAsInvalid = function (isInvalid) {
+  if (isInvalid) {
+    Blockly.addClass_(this.svgGroup_, 'blocklyErrorBlock')
+  } else {
+    Blockly.removeClass_(this.svgGroup_, 'blocklyErrorBlock')
+  }
+}
+
+/**
+ * Checks if block is marked as invalid
+ */
+Blockly.BlockSvg.prototype.isMarkedAsInvalid = function () {
+  return Blockly.hasClass_(this.svgGroup_, 'blocklyErrorBlock')
+}
+
+/**
  * Set this block's warning text.
  * @param {?string} text The text, or null to delete.
  * @param {string=} opt_id An optional ID for the warning text to be able to
