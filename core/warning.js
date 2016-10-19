@@ -33,14 +33,24 @@ goog.require('Blockly.Icon');
 /**
  * Class for a warning.
  * @param {!Blockly.Block} block The block associated with this warning.
+ * @param {Boolean} showTooltipOnHover Should tooltip be shown on mouse hover.
  * @extends {Blockly.Icon}
  * @constructor
  */
-Blockly.Warning = function(block) {
+Blockly.Warning = function(block, showTooltipOnHover) {
   Blockly.Warning.superClass_.constructor.call(this, block);
   this.createIcon();
   // The text_ object can contain multiple warnings.
   this.text_ = {};
+  if (showTooltipOnHover) {
+    var self = this
+    goog.events.listen(this.iconGroup_, goog.events.EventType.MOUSEOVER, function (e) {
+      self.setVisible(true)
+    })
+    goog.events.listen(this.iconGroup_, goog.events.EventType.MOUSEOUT, function (e) {
+      self.setVisible(false)
+    })
+  }
 };
 goog.inherits(Blockly.Warning, Blockly.Icon);
 

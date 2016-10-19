@@ -1386,7 +1386,7 @@ Blockly.BlockSvg.prototype.setWarningText = function(text, opt_id) {
   var changedState = false;
   if (goog.isString(text)) {
     if (!this.warning) {
-      this.warning = new Blockly.Warning(this);
+      this.warning = new Blockly.Warning(this, true);
       changedState = true;
     }
     this.warning.setText(/** @type {string} */ (text), id);
