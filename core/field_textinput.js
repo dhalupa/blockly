@@ -145,6 +145,8 @@ Blockly.FieldTextInput.prototype.showEditor_ = function(opt_quietInput) {
     htmlInput.select();
   }
 
+  // Bind to blur -- hide editor.
+  htmlInput.onInputBlur_ = Blockly.bindEvent_(htmlInput, 'blur', this, this.onBlur_);
   // Bind to keydown -- trap Enter without IME and Esc to hide.
   htmlInput.onKeyDownWrapper_ =
       Blockly.bindEvent_(htmlInput, 'keydown', this, this.onHtmlInputKeyDown_);
@@ -156,6 +158,16 @@ Blockly.FieldTextInput.prototype.showEditor_ = function(opt_quietInput) {
       Blockly.bindEvent_(htmlInput, 'keypress', this, this.onHtmlInputChange_);
   htmlInput.onWorkspaceChangeWrapper_ = this.resizeEditor_.bind(this);
   this.workspace_.addChangeListener(htmlInput.onWorkspaceChangeWrapper_);
+};
+
+/**
+ * Handle blur event to the editor.
+ * @param {!Event} e Keyboard event.
+ * @private
+ */
+Blockly.FieldTextInput.prototype.onBlur_ = function(e) {
+  var htmlInput = Blockly.FieldTextInput.htmlInput_;
+  Blockly.WidgetDiv.hide();
 };
 
 /**

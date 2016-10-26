@@ -19,7 +19,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.artifactory'
 
 
-def _version = "24-10-2016-1"
+def _version = "26-10-2016-1"
 version _version
 group "com.abzreporting"
 
