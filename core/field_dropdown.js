@@ -190,6 +190,17 @@ Blockly.FieldDropdown.prototype.showEditor_ = function() {
                              this.sourceBlock_.RTL);
   menu.setAllowAutoFocus(true);
   menuDom.focus();
+  // Bind to blur -- hide dropdown menu.
+  menuDom.onMenuBlur_ = Blockly.bindEvent_(menuDom, 'blur', this, this.onBlur_);
+};
+
+/**
+ * Handle blur event to the editor.
+ * @param {!Event} e Keyboard event.
+ * @private
+ */
+Blockly.FieldDropdown.prototype.onBlur_ = function(e) {
+  Blockly.WidgetDiv.hide();
 };
 
 /**

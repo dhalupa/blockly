@@ -166,7 +166,6 @@ Blockly.FieldTextInput.prototype.showEditor_ = function(opt_quietInput) {
  * @private
  */
 Blockly.FieldTextInput.prototype.onBlur_ = function(e) {
-  var htmlInput = Blockly.FieldTextInput.htmlInput_;
   Blockly.WidgetDiv.hide();
 };
 
