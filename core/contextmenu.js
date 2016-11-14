@@ -104,8 +104,22 @@ Blockly.ContextMenu.show = function(e, options, rtl) {
   menu.setAllowAutoFocus(true);
   // 1ms delay is required for focusing on context menus because some other
   // mouse event is still waiting in the queue and clears focus.
-  setTimeout(function() {menuDom.focus();}, 1);
+  var self = this
+  setTimeout(function() {
+    menuDom.focus();
+    // Bind to blur -- hide context menu.
+    menuDom.onMenuBlur_ = Blockly.bindEvent_(menuDom, 'blur', self, self.onBlur_);
+  }, 1);
   Blockly.ContextMenu.currentBlock = null;  // May be set by Blockly.Block.
+};
+
+/**
+ * Handle blur event to the context menu.
+ * @param {!Event} e Keyboard event.
+ * @private
+ */
+Blockly.ContextMenu.onBlur_ = function(e) {
+  Blockly.WidgetDiv.hide();
 };
 
 /**
